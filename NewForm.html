@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        
+        
+        input:required{
+            border:1px solid red;
+            background-color: aquamarine;
+            box-shadow: 5px 5px 5px grey;
+        }
+        
+        
+        input:valid{
+            border:1px solid #ccc;
+            background-color: white;
+        }
+                
+        
+        input:valid + .inval /* adjacent sibling*/
+        {
+            visibility: hidden;
+        }
+        
+        
+        input:invalid + .inval /* adjacent sibling*/
+        {
+            visibility: visible;
+        }
+       
+        a{
+            text-decoration: none;
+            height: 20px
+            width:30px;
+            font-family: Nexa;
+            padding: 10px;
+            color:navy;
+        }
+        
+        a:hover{
+            background-color:lightsteelblue;
+            cursor:pointer;
+           text-shadow: 2px 2px 2px grey;
+            color:whitesmoke;
+        }
+        .inval{
+            color:#666;
+            position: relative;
+            margin-bottom: 6px;
+            
+        }
+        
+       
+        
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+    <a>Home</a>
+        
+        <a href="01-new-markup.htm">Products</a>
+        <a>About Us</a>
+        <a>Contact Us</a>
+        
+        
+    
+    </nav>
+    </header>
+    
+<form>
+
+    <label>Name:</label> <br>
+    <input type=text required pattern="[a-zA-Z]{3,}"/> 
+    <div class="inval">
+    Please provide the User Name in alphabets</div>
+    <br><hr>
+    <label>Zip:</label> <br>
+    <input type=number  />
+    <br><hr>
+    <label>Phone:</label> <br>
+    <input type=tel  />
+    <br><hr>
+    <label>Email:</label> <br>
+    <input type=email required />
+    <div class="inval">
+    Please provide the Email Name in correct format</div>
+    
+    <br><hr>
+    
+    <input type=submit value="Submit"/>
+    
+</form>
+    
+</body>
+</html>
