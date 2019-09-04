@@ -1,0 +1,484 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Using Modernizr to Detect Cross Browser HTML5 Capabilities</title>
+    <style>
+    body
+    {
+        font-family:Segoe UI;   
+    }
+    
+    hgroup h1
+    {
+        
+    }
+    
+    hgroup h2
+    {
+        margin-top:-20px;
+        font-weight:normal;
+        font-size:14px;
+    }
+    
+    table
+    {
+        border:1px solid #999;
+        border-collapse:collapse;
+    }
+    
+    table tr th
+    {
+        background-color:#ccc;
+        padding:6px;
+    }
+    
+    .detected
+    {
+        background:url(../images/check.png) no-repeat center center;
+    }
+    .notDetected
+    {
+        background:url(../images/x.png) no-repeat center center;
+    }
+    .feature
+    {
+        width:85px;
+        height:25px;
+    }
+    
+    .api
+    {
+        font-family:Courier New;
+        padding:3px;
+    }
+    
+    footer
+    {
+        margin-top:35px;    
+    }
+    
+    .alt
+    {
+        background-color:#eee;
+    }
+    </style>
+    <script src="../scripts/jquery-1.4.4.min.js"></script>
+    <script src="../scripts/modernizr-1.6.min.js"></script>
+    <script>
+
+        // learn more about Modernizr here:
+        //   http://www.modernizr.com/docs/
+
+        var features = new Array();
+        $().ready(function () {
+
+            // by default mark all functionality as 'not detected'
+            $(".feature").addClass("notDetected");
+
+            // select all element ID's of API members to detect
+            $("article table tr[id]").each(function (i, element) {
+                features[i] = element.id;
+            });
+
+            // for each member, run the detection using Modernizr
+            // and display the results
+            // note: the 'fontface' detection requires a callback
+            var feature, container;
+            for (var i = 0; i < features.length; i++) {
+                feature = features[i];
+                container = document.getElementById(feature);
+
+                var api = container.querySelector(".api");
+                $(api).text("Modernizr." + features[i]);
+
+                if (feature == "fontface") {
+                    Modernizr._fontfaceready(function (bool) {
+                        detected(container);
+                    });
+                }
+                else {
+                    // outside the loop the API call is a just
+                    // a call to each feature's boolen property
+                    //  Ex: Modernizr.canvas
+                    if (eval("Modernizr." + feature)) {
+                        detected(container);
+                    }
+                }
+            }
+
+            // zebra stripe the table
+            $("table tr:even").addClass("alt");
+        });
+
+        // display the checkmark if the feature is detected
+        function detected(container) {
+            var e = container.querySelector(".feature");
+            $(e).removeClass("notDetected").addClass("detected");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>Detecting HTML5 Features</h1>
+            <h2>Using <a href="http://www.modernizr.com/" target="_blank">Modernizr.js</a> to determine wich HTML5 features are available in the current browser.</h2>
+        </hgroup>
+    </header>
+    <article>
+        <table cellpadding="3" cellspacing="3" border="1">
+            <tr>
+                <th>Feature</th>
+                <th>API Member</th>
+                <th width="25">Supported in this Browser</th>
+            </tr>
+            <tr id="fontface">
+                <td>@font-face</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="canvas">
+                <td>Canvas</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="canvastext">
+                <td>Canvas Text</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="webgl">
+                <td>WebGL</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="audio">
+                <td>HTML5 Audio</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="audio.ogg">
+                <td>HTML5 Audio formats (ogg)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="audio.mp3">
+                <td>HTML5 Audio formats (mp3)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="audio.wav">
+                <td>HTML5 Audio formats (wav)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="audio.m4a">
+                <td>HTML5 Audio formats (m4a)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="video">
+                <td>HTML5 Video</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="video.ogg">
+                <td>HTML5 Video formats (ogg)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="video.h264">
+                <td>HTML5 Video formats (h264)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="rgba">
+                <td>rgba()</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="hsla">
+                <td>hsla()</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="borderimage">
+                <td>border-image</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="borderradius">
+                <td>border-radius</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="boxshadow">
+                <td>box-shadow</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="textshadow">
+                <td>text-shadow</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="multiplebgs">
+                <td>Multiple backgrounds</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="backgroundsize">
+                <td>background-size</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="opacity">
+                <td>opacity</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="cssanimations">
+                <td>CSS Animations</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="csscolumns">
+                <td>CSS Columns</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="cssgradients">
+                <td>CSS Gradients</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="cssreflections">
+                <td>CSS Reflections</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="csstransforms">
+                <td>CSS 2D Transforms</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="csstransforms3d">
+                <td>CSS 3D Transforms</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="flexbox">
+                <td>Flexible Box Model</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="csstransitions">
+                <td>CSS Transitions</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="geolocation">
+                <td>Geolocation API</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.search">
+                <td>Input Types (search)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.tel">
+                <td>Input Types (tel)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.url">
+                <td>Input Types (url)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.email">
+                <td>Input Types (email)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.datetime">
+                <td>Input Types (datetime)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.date">
+                <td>Input Types (date)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.month">
+                <td>Input Types (month)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.week">
+                <td>Input Types (week)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.time">
+                <td>Input Types (time)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.datetimeLocal">
+                <td>Input Types (datetime-local)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.number">
+                <td>Input Types (number)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.range">
+                <td>Input Types (range)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inputtypes.color">
+                <td>Input Types (color)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.autocomplete">
+                <td>Input Attributes (autocomplete)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.autofocus">
+                <td>Input Attributes (autofocus)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.list">
+                <td>Input Attributes (list)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.placeholder">
+                <td>Input Attributes (placeholder)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.max">
+                <td>Input Attributes (max)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.min">
+                <td>Input Attributes (min)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.multiple">
+                <td>Input Attributes (multiple)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.pattern">
+                <td>Input Attributes (pattern)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.required">
+                <td>Input Attributes (required)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="input.step">
+                <td>Input Attributes (step)</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="localstorage">
+                <td>localStorage</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="sessionstorage">
+                <td>sessionStorage</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="webworkers">
+                <td>Web Workers</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="applicationcache">
+                <td>applicationCache</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="svg">
+                <td>SVG</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="inlinesvg">
+                <td>Inline SVG</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="svgclippaths">
+                <td>SVG Clip paths</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="smil">
+                <td>SMIL</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="websqldatabase">
+                <td>Web SQL Database</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="indexeddb">
+                <td>IndexedDB</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="websockets">
+                <td>Web Sockets</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="hashchange">
+                <td>hashchange Event</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="history">
+                <td>History Management</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="draganddrop">
+                <td>Drag and Drop</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="postmessage">
+                <td>Cross-window Messaging</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+            <tr id="touch">
+                <td>Touch Events</td>
+                <td class="api"></td>
+                <td class="feature"></td>
+            </tr>
+        </table>
+        <footer>
+        </footer>
+    </article>
+</body>
+</html>
