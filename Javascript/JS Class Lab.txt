@@ -1,0 +1,15 @@
+1.Write a regular expression that finds all of the occurrences of the word “a” in the following sentence
+and replaces them with “the”: Use regexp() object.
+“a boy walked in off a street and ordered a finest tea”
+The sentence should become:
+“the boy walked in off the street and ordered the finest tea”
+
+2.Check the validity of email and mobile number.
+
+3.Extend the String object to include a new function - myStyle(), which when called will set the font-size to 15, style to bold with seagreen color text.Use prototype.
+
+4.Create a shopping cart based on the products page and based on the user selection, calculate quantity, sub total and Total price – include the delivery charges/tax.
+
+5.Create a class Movies - using 3 methods - direct,constructor,json - create bollywood,hollywood - subclasses. Use reflection, closures(toaccess B.o collection property). 
+
+

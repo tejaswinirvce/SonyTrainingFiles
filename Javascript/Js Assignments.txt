@@ -1,0 +1,46 @@
+wap to create a calculator, - add, subtract,product & divide - get the numbers from textboxes and display the result on the web page.
+
+//1.Wap to create variables - x,y,z. find out the greatest.//
+
+2.wap to accept 10 numbers and display the even and odd numbers.
+
+3.wap to accept a number and display the fibonacci series till that input.0,1,1,2,3,5,8,13
+
+4.Wap to accept user's choice to check balance, withdraw or deposit - if the user selects check balance, display the default cash value 1000Rs; for withdraw, deduct the balance and show the total balance; for deposit, add the balance and show the total amount. 
+
+5.WAP to accept a string and do the foll:
+->Reverse the string
+->Check if its palindrome
+->Disp the total number of characters in the string
+
+6.wap to create array which stores 5 product details and display the products in the reverse order, retrieve 4th element, delete 3rd product.
+
+7.Create a student details array with Names and marks for five subjects - get the marks for each student from the user and find the average and display the grade accordingly - if the average is < 50 , grade fail; avg>50 & <70 ,grade pass-first class;avg> 70 & <80 grade: distinction; avg >80 grade:Excellent; Rank the students based on their average.
+
+
+dom manipulation,window objects - history,navigator,document,location
+
+8.wap to accept a string and convert it to upper case & lower case
+
+9.wap to remove the spaces of a given string
+
+10.Write a JScript code that accepts the length, breadth and height and displays the area of a rectangle.
+
+11.Using JavaScript, create a calculator
+
+12.Create a form and use selection & input events to style when the controls are focused and also use the click event to display the details from the form on a result element on the web page.
+
+13. Create student details with name,age,grade, functions - attendance_display, mark_avg
+use direct,template,json methods to create the class and access it.
+
+.Create an associative array called colors. Each element of the array is a string representing the color, for example, red or blue. Use the for/in loop to view each element of the array with a color of the font the same color as the value of the array element being displayed.Slice,Splice,Shift,Unshift,concat
+
+15.a. Use the Date object to print today’s date in this format: Today is Friday, December 17, 2017.
+
+b. Calculate and display the number of days until your next birthday. c. Create a prototype for the Date object that will print the months starting at 1 instead of 0.
+
+16. Create an array for 10 fortune cookies , that randomly displays a fortune everytime the user loads a page.
+
+17.Extend the String object to include a new function - myStyle(), which when called will set the font-size to 15, style to bold with seagreen color text.Use prototype.
+
+18. Create a shopping cart based on the products page and based on the user selection, calculate quantity, sub total and Total price – include the delivery charges/tax.

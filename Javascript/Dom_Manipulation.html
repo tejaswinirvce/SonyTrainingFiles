@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Dom Walkthrough!</title>
+    <style>
+    
+        .pclass{
+            color:coral;
+            font-family: "Quicksand";
+        }
+    </style>
+          
+
+</head>
+        
+    <body id="body1">
+        
+        <h1>Dom Manipulation</h1>
+        <h1>Short walk</h1>
+            <h1>By tags</h1>
+            <p class="pclass" id="pid">Checking the para class</p>
+
+      <script>
+    
+        var h1s = document.getElementsByTagName("h1");
+        var para = document.getElementById("pid");  
+    
+                
+        for(i=0;i<h1s.length;i++)
+            {
+               document.write("From Javascript!"+h1s[i].nodeName + h1s[i].childNodes[0].nodeValue + "</br>");
+            }
+        
+     document.write("The para style :" + para.nodeType);
+    
+    </script>
+    
+    </body>
+    
+    
+</html>

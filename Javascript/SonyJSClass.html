@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <title>Javascript Object based Features</title>
+
+    <script>
+    
+        //JSON
+        
+        var cust = {
+            custid:"C001",
+            custName:"Ram",
+            custAge:23,
+            disp:function(){
+                return this.custName;
+            },
+            "cust company":"sony",
+            address:{
+                street:"ORR",
+                City:"Bangalore",
+                State:"KA"
+            }
+        };
+    
+        
+        document.write(cust.custid + "<br/></br>");
+        document.write(cust.custName + "<br/></br>");
+        document.write(cust.disp() + "<br/></br>");
+        document.write(cust.address.City + "<br/></br>");
+        document.write(cust["cust company"] + "<br/></br>");
+        
+        
+        
+        //Template - Constructor function - Object
+        
+        function Product (prodid, prodname){
+            //public
+            this.prodid = prodid;
+            this.prodname = prodname;
+            
+            //private
+            var prodtype = "Furniture";
+            
+            this.type = function(){
+                alert("The type of product.." + prodtype);
+            }
+            
+        }
+        
+        var pr = new Product("M001","Swing");
+        
+        alert(pr.prodid);
+        alert(pr.prodname);
+        pr.type();    
+        
+        var prod = new Product("P001","Table");
+        Product.prototype.prodesc = "It is madeof teak";
+        Product.prototype.extmethod = function(){
+            return "My method ..";
+        }
+        
+        
+        document.write(prod.prodesc);
+    document.write(prod.extmethod());
+       
+        
+        //relation
+        console.log( "prod is an instance of product" )
+        console.log(prod instanceof Product);
+        
+        //Inheritance
+        
+        function Planters(name)
+        {
+            this.pname = name;
+        }
+        
+        Planters.prototype = new Product("P002","Vertical garden");
+        
+        var railingplntr = new Planters("RailPlanters");
+        
+        console.log("Checking rail planter is product ")
+            console.log(railingplntr instanceof Product);
+        
+        alert(" own prop"+railingplntr.hasOwnProperty("pname"));
+        
+        
+        //Direct
+        var obj = new Object();
+        obj.prop1  = "My prop";
+        console.log(obj.prop1);
+        
+    </script>
+    
+</head>
+    
+<body>
+
+    
+</body>
+</html>
