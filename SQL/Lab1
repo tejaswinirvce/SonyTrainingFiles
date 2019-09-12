@@ -1,8 +1,14 @@
+Create Tables – Employee & Department – EmpNo, First Name, LastName, FullName(Computed), EmpAge,Address, DeptNo – 
+Department -> DeptNo, DeptName, EmpNos, Manager Name, ManagerID
 
-Create Tables – Employee & Department – EmpNo, First Name, LastName, FullName(Computed), EmpAge,Address, DeptNo – Department -> DeptNo, DeptName, EmpNos, Manager Name, ManagerID
 Create references between dept & emp using dept no
+
 Use Identity to auto generate the ids
+
 Use check constraint for checking age to be great than 18
+
 Use default constraint to use in address – make it Bangalore 
+
 Use Insert into Values -> to populate Employee & Department.
+
 Drop the tables / retrieve the tables
