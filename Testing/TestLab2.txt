@@ -1,0 +1,4 @@
+Write a classic & constraint versions of assert to check if an expression is false.
+Write a constraint assert to check if a word is present in a sentence
+Syntax to write a test to check the greatest of any 3 numbers.
+Assert.AreEqual(“Hello”,”hello”) – Will it be a failing or passing test, if it fails , how to make it pass? - make it a constraint syntax
